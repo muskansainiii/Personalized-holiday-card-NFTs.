@@ -22,3 +22,4 @@ The project aims to modernize the holiday card industry by introducing a decentr
 ## Contract Address
 0xb9a5c880276DaB5fa069C4FD0d1aF9e7e8F8088f
 ![image](https://github.com/user-attachments/assets/8132ee17-cd3f-452c-8095-6b204691c1f8)
+![image](https://github.com/user-attachments/assets/64def9c8-a441-4fb0-acf3-5239983d7ded)
