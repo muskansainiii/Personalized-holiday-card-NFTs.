@@ -1,45 +1,23 @@
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.19;
-
-contract HolidayCardNFT {
-    string public name = "HolidayCardNFT";
-    string public symbol = "HCNFT";
-    uint256 private _tokenIds;
-
-    mapping(uint256 => address) private _owners;
-    mapping(address => uint256) private _balances;
-    mapping(uint256 => string) private _tokenURIs;
-
-    event Transfer(address indexed from, address indexed to, uint256 indexed tokenId);
-    event Mint(address indexed to, uint256 indexed tokenId, string tokenURI);
-
-    function balanceOf(address owner) public view returns (uint256) {
-        require(owner != address(0), "Invalid address");
-        return _balances[owner];
-    }
-
-    function ownerOf(uint256 tokenId) public view returns (address) {
-        address owner = _owners[tokenId];
-        require(owner != address(0), "Token does not exist");
-        return owner;
-    }
-
-    function mintNFT(address recipient, string memory tokenURI) public returns (uint256) {
-        require(recipient != address(0), "Invalid recipient");
-        _tokenIds++;
-        uint256 newItemId = _tokenIds;
-        _owners[newItemId] = recipient;
-        _balances[recipient] += 1;
-        _tokenURIs[newItemId] = tokenURI;
-
-        emit Mint(recipient, newItemId, tokenURI);
-        emit Transfer(address(0), recipient, newItemId);
-        
-        return newItemId;
-    }
-
-    function tokenURI(uint256 tokenId) public view returns (string memory) {
-        require(_owners[tokenId] != address(0), "Token does not exist");
-        return _tokenURIs[tokenId];
-    }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holiday Card NFT</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4/web3.min.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🎄 Holiday Card NFT 🎁</h1>
+        <p>Mint your own festive NFT card!</p>
+        <input type="text" id="recipient" placeholder="Recipient Address">
+        <input type="text" id="tokenURI" placeholder="Token URI (image link)">
+        <button id="mintBtn">Mint NFT</button>
+        <p id="status"></p>
+        <div id="nftDisplay"></div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
