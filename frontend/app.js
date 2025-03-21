@@ -1,5 +1,5 @@
 const contractAddress = "0xb9a5c880276DaB5fa069C4FD0d1aF9e7e8F8088f ";
-const contractABI = [ [
+const contractABI = [[
 	{
 		"anonymous": false,
 		"inputs": [
@@ -34,7 +34,7 @@ const contractABI = [ [
 			},
 			{
 				"internalType": "string",
-				"name": "tokenURI",
+				"name": "_tokenId",
 				"type": "string"
 			}
 		],
@@ -157,7 +157,7 @@ const contractABI = [ [
 		"stateMutability": "view",
 		"type": "function"
 	}
-] ];
+]];
 let web3, contract;
 
 async function init() {
